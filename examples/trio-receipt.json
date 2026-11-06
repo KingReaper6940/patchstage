@@ -1,0 +1,101 @@
+{
+  "schema": "patchstage-receipt-v1",
+  "project": {
+    "schema": "patchstage-project-v1",
+    "title": "The Lantern Room · acoustic trio",
+    "notes": "Illustrative plan only. Confirm equipment and patch with the venue.\nAudience at the bottom; grid is not to scale.",
+    "stations": [
+      {
+        "id": "s1",
+        "label": "Dulcimer · Ada",
+        "x": 0,
+        "y": 1
+      },
+      {
+        "id": "s2",
+        "label": "Vocal · Sol",
+        "x": 2,
+        "y": 2
+      },
+      {
+        "id": "s3",
+        "label": "Bass · Ren",
+        "x": 4,
+        "y": 1
+      }
+    ],
+    "inputs": [
+      {
+        "id": "i1",
+        "channel": 1,
+        "label": "Dulcimer pickup",
+        "station": "s1",
+        "device": "DI",
+        "stand": "None",
+        "provider": "act",
+        "notes": "Confirm connector with venue."
+      },
+      {
+        "id": "i2",
+        "channel": 2,
+        "label": "Lead vocal",
+        "station": "s2",
+        "device": "Vocal mic",
+        "stand": "Tall boom",
+        "provider": "venue",
+        "notes": ""
+      },
+      {
+        "id": "i3",
+        "channel": 3,
+        "label": "Bass pickup",
+        "station": "s3",
+        "device": "DI",
+        "stand": "None",
+        "provider": "venue",
+        "notes": ""
+      }
+    ]
+  },
+  "summary": {
+    "stations": 3,
+    "inputs": 3,
+    "patched": 3,
+    "issues": []
+  },
+  "patch": [
+    {
+      "id": "i1",
+      "channel": 1,
+      "label": "Dulcimer pickup",
+      "station": "s1",
+      "device": "DI",
+      "stand": "None",
+      "provider": "act",
+      "notes": "Confirm connector with venue.",
+      "stationLabel": "Dulcimer · Ada"
+    },
+    {
+      "id": "i2",
+      "channel": 2,
+      "label": "Lead vocal",
+      "station": "s2",
+      "device": "Vocal mic",
+      "stand": "Tall boom",
+      "provider": "venue",
+      "notes": "",
+      "stationLabel": "Vocal · Sol"
+    },
+    {
+      "id": "i3",
+      "channel": 3,
+      "label": "Bass pickup",
+      "station": "s3",
+      "device": "DI",
+      "stand": "None",
+      "provider": "venue",
+      "notes": "",
+      "stationLabel": "Bass · Ren"
+    }
+  ]
+}
