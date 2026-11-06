@@ -1,3 +1,4 @@
+import {attachHandoff} from './handoff.mjs';
 import {blank,audit,orderedInputs} from './model.mjs';
 import {edit,history} from './edit.mjs';
 import {example} from './example.mjs';
@@ -47,4 +48,4 @@ export function createApp(doc,win=doc.defaultView){
   load(p){check();commit(p);reset('station');reset('input');render();status('Project opened. Undo restores the previous plot.');},
   subscribe(fn){onChange=fn;fn();}};
 }
-if(typeof document!=='undefined')createApp(document);
+if(typeof document!=='undefined')attachHandoff(createApp(document),document);
