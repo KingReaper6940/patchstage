@@ -1,6 +1,6 @@
 import {validate,audit,orderedInputs} from './model.mjs';
 export const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const chunks=(s,n)=>Array.from({length:Math.ceil(s.length/n)},(_,i)=>s.slice(i*n,(i+1)*n));
+const chunks=(s,n)=>Array.from({length:Math.ceil([...s].length/n)},(_,i)=>[...s].slice(i*n,(i+1)*n).join(''));
 export const projectJSON=p=>JSON.stringify(validate(p),null,2)+'\n';
 export function receipt(p){const a=audit(p);return {schema:'patchstage-receipt-v1',project:validate(p),summary:a,patch:orderedInputs(p).map(i=>({...i,stationLabel:p.stations.find(s=>s.id===i.station)?.label??null}))};}
 export function stageSVG(p){

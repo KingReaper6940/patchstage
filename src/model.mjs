@@ -1,7 +1,7 @@
 export const SCHEMA='patchstage-project-v1';
 const fail=m=>{throw Error(m)};
 const keys=(o,k)=>{if(!o||typeof o!=='object'||Array.isArray(o)||Object.keys(o).sort().join('|')!==[...k].sort().join('|'))fail('Unsupported project fields.');};
-const text=(v,n,name,multi=false)=>{if(typeof v!=='string'||v.length>n||(!multi&&/[\r\n]/.test(v))||/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(v))fail(name+' contains unsupported text or exceeds '+n+' characters.');};
+const text=(v,n,name,multi=false)=>{if(typeof v!=='string'||[...v].some(c=>c.length===1&&c.charCodeAt(0)>=0xd800&&c.charCodeAt(0)<=0xdfff)||v.length>n||(!multi&&/[\r\n]/.test(v))||/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(v))fail(name+' contains unsupported text or exceeds '+n+' characters.');};
 const num=(n,a,b)=>Number.isInteger(n)&&n>=a&&n<=b;
 export function validate(p){
  keys(p,['schema','title','notes','stations','inputs']);if(p.schema!==SCHEMA)fail('Unsupported project version.');
