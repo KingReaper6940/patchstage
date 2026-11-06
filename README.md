@@ -2,6 +2,8 @@
 
 **A clear stage plot and input patch, in one local workspace.**
 
+[Open Patchstage](https://patchstage.vercel.app)
+
 Plan a small act without choosing from an instrument catalog. Place custom-labeled stations, link each audio source to its station, and export a readable handoff for the venue.
 
 ![An actual exported trio stage plot](examples/trio-stage.svg)
